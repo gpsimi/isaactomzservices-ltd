@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Phone, Mail, Instagram, MapPin } from "lucide-react";
+import Image from "next/image";
+import logo from "@/assets/logos/icon.png";
 
 const quickLinks = [
   { name: "About Us", href: "/about" },
@@ -26,21 +28,28 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-6">
-              <span className="font-heading text-2xl font-bold tracking-tight">
-                ISAAC TOMZ
-              </span>
-              <span className="block text-xs tracking-[0.3em] uppercase text-warm-concrete mt-1">
-                Services Ltd
-              </span>
+            <Link href="/" className="flex items-center mb-6">
+              <Image
+                src={logo}
+                alt="Logo"
+                width={50}
+                height={50}
+                className="mr-2"
+              />
+              <div className="inline-block">
+                <span className="font-heading text-2xl font-bold tracking-tight">
+                  ISAAC TOMZ
+                </span>
+                <span className="block text-xs tracking-[0.3em] uppercase text-warm-concrete mt-1">
+                  Services Ltd
+                </span>
+              </div>
             </Link>
             <p className="text-warm-concrete text-sm leading-relaxed mb-6 font-light italic">
-              "Crafted with Precision. Built for Legacy."
+              At we believe in building more than just structures, we build relationships,
+              trust, and lasting value. With a focus on quality, innovation, and integrity,
+              we strive to deliver projects that exceed expectations and leave a lasting legacy.
             </p>
-            <div className="flex items-center gap-2 text-sm text-warm-concrete">
-              <span className="w-8 h-[1px] bg-construction-red" />
-              RC 7059172
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -70,9 +79,7 @@ export function Footer() {
             <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service}>
-                  <span className="text-warm-concrete text-sm">
-                    {service}
-                  </span>
+                  <span className="text-warm-concrete text-sm">{service}</span>
                 </li>
               ))}
             </ul>
@@ -98,7 +105,7 @@ export function Footer() {
                   href="mailto:isaactomzservicesltd@gmail.com"
                   className="flex items-center gap-3 text-warm-concrete text-sm hover:text-pure-white transition-colors duration-300 break-all"
                 >
-                  <Mail size={16} className="text-construction-red flex-shrink-0" />
+                  <Mail size={16} className="text-construction-red shrink-0" />
                   isaactomzservicesltd@gmail.com
                 </a>
               </li>
@@ -114,7 +121,10 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-start gap-3 text-warm-concrete text-sm">
-                <MapPin size={16} className="text-construction-red flex-shrink-0 mt-1" />
+                <MapPin
+                  size={16}
+                  className="text-construction-red shrink-0 mt-1"
+                />
                 <span>Nigeria</span>
               </li>
             </ul>
@@ -125,7 +135,8 @@ export function Footer() {
         <div className="mt-16 pt-8 border-t border-graphite">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-warm-concrete text-xs">
-              © {new Date().getFullYear()} Isaac Tomz Services Ltd. All rights reserved.
+              © {new Date().getFullYear()} Isaac Tomz Services Ltd. All rights
+              reserved.
             </p>
             <div className="flex items-center gap-6">
               <Link

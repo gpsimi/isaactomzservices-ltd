@@ -53,7 +53,7 @@ export default function About() {
                 </h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    Isaac Tomz Services Ltd (RC 7059172) is a registered Nigerian company 
+                    Isaac Tomz Services Ltd is a registered Nigerian company 
                     specializing in architectural design, construction, and project management. 
                     Founded on the principles of quality, transparency, and client satisfaction, 
                     we have established ourselves as a trusted name in Nigeria's construction industry.
