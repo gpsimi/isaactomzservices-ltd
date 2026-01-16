@@ -12,10 +12,13 @@ export function CTASection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-section bg-charcoal relative overflow-hidden">
+    <section
+      ref={ref}
+      className="py-section bg-charcoal relative overflow-hidden"
+    >
       {/* Animated Background Elements */}
       <motion.div
-        className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-deep-black/50 to-transparent"
+        className="absolute top-0 left-0 w-1/3 h-full bg-linear-to-r from-deep-black/50 to-transparent"
         initial={{ x: "-100%" }}
         animate={isInView ? { x: 0 } : {}}
         transition={{ duration: 1, ease: "easeOut" }}
@@ -32,13 +35,13 @@ export function CTASection() {
           initial={{ height: 0 }}
           animate={isInView ? { height: 64 } : { height: 0 }}
           transition={{ delay: 0.8, duration: 0.5 }}
-          className="absolute top-8 right-8 w-[1px] bg-pure-white/10"
+          className="absolute top-8 right-8 w-px bg-pure-white/10"
         />
         <motion.div
           initial={{ width: 0 }}
           animate={isInView ? { width: 64 } : { width: 0 }}
           transition={{ delay: 0.8, duration: 0.5 }}
-          className="absolute top-8 right-8 h-[1px] bg-pure-white/10"
+          className="absolute top-8 right-8 h-px bg-pure-white/10"
         />
       </motion.div>
       <motion.div
@@ -51,13 +54,13 @@ export function CTASection() {
           initial={{ height: 0 }}
           animate={isInView ? { height: 64 } : { height: 0 }}
           transition={{ delay: 0.8, duration: 0.5 }}
-          className="absolute bottom-8 left-8 w-[1px] bg-pure-white/10"
+          className="absolute bottom-8 left-8 w-px bg-pure-white/10"
         />
         <motion.div
           initial={{ width: 0 }}
           animate={isInView ? { width: 64 } : { width: 0 }}
           transition={{ delay: 0.8, duration: 0.5 }}
-          className="absolute bottom-8 left-8 h-[1px] bg-pure-white/10"
+          className="absolute bottom-8 left-8 h-px bg-pure-white/10"
         />
       </motion.div>
 
@@ -73,7 +76,7 @@ export function CTASection() {
                 initial={{ width: 0 }}
                 animate={isInView ? { width: 48 } : { width: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="h-[2px] bg-construction-red"
+                className="h-0.5 bg-construction-red"
               />
               <span className="text-warm-concrete text-sm tracking-[0.2em] uppercase font-medium">
                 Start Your Project
@@ -82,7 +85,7 @@ export function CTASection() {
                 initial={{ width: 0 }}
                 animate={isInView ? { width: 48 } : { width: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="h-[2px] bg-construction-red"
+                className="h-0.5 bg-construction-red"
               />
             </div>
             <motion.h2
@@ -107,8 +110,9 @@ export function CTASection() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-warm-concrete text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
             >
-              Whether you're envisioning a luxury residence or a landmark commercial
-              project, our team is ready to bring your vision to life.
+              Whether you're envisioning a luxury residence or a landmark
+              commercial project, our team is ready to bring your vision to
+              life.
             </motion.p>
           </motion.div>
 
@@ -137,19 +141,6 @@ export function CTASection() {
                 </a>
               </Button>
             </motion.div>
-          </motion.div>
-
-          {/* Trust Badge */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="mt-12 pt-8 border-t border-graphite"
-          >
-            <p className="text-warm-concrete text-sm">
-              Registered with the Corporate Affairs Commission of Nigeria •{" "}
-              <span className="text-pure-white">RC 7059172</span>
-            </p>
           </motion.div>
         </div>
       </div>

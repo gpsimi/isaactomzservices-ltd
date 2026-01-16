@@ -7,6 +7,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import logo from "@/assets/logos/icon.png";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -51,10 +53,17 @@ export function Header() {
         <div className="container-luxury">
           <nav className="flex items-center justify-between h-20 lg:h-24">
             {/* Logo */}
-            <Link href="/" className="relative z-10">
+            <Link href="/" className="relative z-10 flex items-center">
+              <Image
+                src={logo}
+                alt="Logo"
+                width={50}
+                height={50}
+                className="mr-2"
+              />
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="flex flex-col"
+                className="flex flex-col items-center"
               >
                 <span
                   className={cn(
@@ -94,7 +103,9 @@ export function Header() {
                   <span
                     className={cn(
                       "absolute -bottom-1 left-0 h-[2px] bg-construction-red transition-all duration-300",
-                      pathname === link.href ? "w-full" : "w-0 group-hover:w-full"
+                      pathname === link.href
+                        ? "w-full"
+                        : "w-0 group-hover:w-full"
                     )}
                   />
                 </Link>
