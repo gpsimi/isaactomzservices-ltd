@@ -8,11 +8,31 @@ import Image from "next/image";
 import aboutUsImage from "@/assets/images/about-us-image-2.jpg";
 
 const reasons = [
-  { title: "Bespoke Solutions", description: "Every project is unique. We tailor our approach to meet your specific vision and requirements." },
-  { title: "Premium Craftsmanship", description: "We use only the finest materials and employ skilled artisans who take pride in their work." },
-  { title: "Transparent Cost Control", description: "Clear budgeting and honest communication throughout, with no hidden costs or surprises." },
-  { title: "Timely Delivery", description: "We respect your time. Our rigorous project management ensures on-schedule completion." },
-  { title: "Professional Supervision", description: "Experienced project managers oversee every aspect, maintaining the highest quality standards." },
+  {
+    title: "Bespoke Solutions",
+    description:
+      "Every project is unique. We tailor our approach to meet your specific vision and requirements.",
+  },
+  {
+    title: "Premium Craftsmanship",
+    description:
+      "We use only the finest materials and employ skilled artisans who take pride in their work.",
+  },
+  {
+    title: "Transparent Cost Control",
+    description:
+      "Clear budgeting and honest communication throughout, with no hidden costs or surprises.",
+  },
+  {
+    title: "Timely Delivery",
+    description:
+      "We respect your time. Our rigorous project management ensures on-schedule completion.",
+  },
+  {
+    title: "Professional Supervision",
+    description:
+      "Experienced project managers oversee every aspect, maintaining the highest quality standards.",
+  },
 ];
 
 export function WhyChooseUsSection() {
@@ -30,13 +50,17 @@ export function WhyChooseUsSection() {
           >
             <div className="flex items-center gap-3 mb-6">
               <span className="w-12 h-[2px] bg-construction-red" />
-              <span className="text-warm-concrete text-sm tracking-[0.2em] uppercase font-medium">Why Choose Us</span>
+              <span className="text-warm-concrete text-sm tracking-[0.2em] uppercase font-medium">
+                Why Choose Us
+              </span>
             </div>
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6">
-              Our Standard of <span className="text-construction-red">Excellence</span>
+              Our Standard of{" "}
+              <span className="text-construction-red">Excellence</span>
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              At Isaac Tomz Services Ltd, we don't just meet expectations — we exceed them.
+              At Isaac Tomz Services Ltd, we don't just meet expectations — we
+              exceed them.
             </p>
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -45,12 +69,12 @@ export function WhyChooseUsSection() {
               className="bg-light-concrete relative overflow-hidden"
             >
               <div className="absolute inset-0 flex items-center justify-center">
-                <Image 
-                  src={aboutUsImage} 
-                  alt="Why Choose Us" 
-                  width={400} 
-                  height={300} 
-                  className="object-cover" 
+                <Image
+                  src={aboutUsImage}
+                  alt="Why Choose Us"
+                  width={1000}
+                  height={300}
+                  className="object-cover"
                 />
               </div>
               <div className="absolute bottom-0 left-0 right-0 h-1 bg-construction-red" />
@@ -67,14 +91,18 @@ export function WhyChooseUsSection() {
                 whileHover={{ x: 8 }}
                 className="flex gap-5 p-6 bg-light-concrete border-l-2 border-construction-red hover:bg-secondary transition-colors duration-300"
               >
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                   <div className="w-10 h-10 bg-construction-red flex items-center justify-center">
                     <Check size={20} className="text-pure-white" />
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-heading text-lg font-semibold text-foreground mb-2">{reason.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{reason.description}</p>
+                  <h3 className="font-heading text-lg font-semibold text-foreground mb-2">
+                    {reason.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {reason.description}
+                  </p>
                 </div>
               </motion.div>
             ))}

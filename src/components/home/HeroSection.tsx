@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import heroImage from "@/assets/images/hero-architecture.jpg";
+import heroImage from "@/assets/images/hero-info-image-1.jpg";
 
 export function HeroSection() {
   return (
@@ -33,8 +33,8 @@ export function HeroSection() {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-1/4 left-8 w-[1px] h-32 bg-pure-white/20 hidden lg:block" />
-      <div className="absolute bottom-1/4 right-8 w-[1px] h-32 bg-pure-white/20 hidden lg:block" />
+      <div className="absolute top-1/4 left-8 w-px h-32 bg-pure-white/20 hidden lg:block" />
+      <div className="absolute bottom-1/4 right-8 w-px h-32 bg-pure-white/20 hidden lg:block" />
 
       {/* Content */}
       <div className="relative z-10 container-luxury text-center lg:text-left">
@@ -79,7 +79,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-pure-white/70 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed mx-auto lg:mx-0"
           >
-            Premium architectural design, construction, and project management — 
+            Premium architectural design, construction, and project management —
             delivered with precision and integrity across Nigeria.
           </motion.p>
 
@@ -120,7 +120,7 @@ export function HeroSection() {
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-[1px] h-8 bg-gradient-to-b from-pure-white/50 to-transparent"
+            className="w-px h-8 bg-linear-to-b from-pure-white/50 to-transparent"
           />
         </div>
       </motion.div>
