@@ -72,7 +72,7 @@ export function WhyChooseUsSection() {
                 <Image
                   src={aboutUsImage}
                   alt="Why Choose Us"
-                  width={100}
+                  width={1000}
                   height={300}
                   className="object-cover"
                 />
