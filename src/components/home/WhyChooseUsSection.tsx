@@ -5,7 +5,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Check } from "lucide-react";
 import Image from "next/image";
-import aboutUsImage from "@/assets/images/about-us-image-2.jpg";
+import aboutUsImage from "@/assets/images/about-us-image-2.png";
 
 const reasons = [
   {
@@ -66,7 +66,7 @@ export function WhyChooseUsSection() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="bg-light-concrete relative overflow-hidden"
+              className="bg-light-concrete relative overflow-hidden h-[550px]"
             >
               <div className="absolute inset-0 flex items-center justify-center">
                 <Image
