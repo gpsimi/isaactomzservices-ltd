@@ -88,10 +88,10 @@ export function IntroSection() {
           className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-16 border-t border-border"
         >
           {[
-            { value: 10, suffix: "+", label: "Years of Experience" },
-            { value: 150, suffix: "+", label: "Projects Completed" },
+            { value: 8, suffix: "+", label: "Years of Experience" },
+            { value: 50, suffix: "+", label: "Projects Completed" },
             { value: 100, suffix: "%", label: "Client Satisfaction" },
-            { value: 50, suffix: "+", label: "Skilled Professionals" },
+            { value: 20, suffix: "+", label: "Skilled Professionals" },
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
