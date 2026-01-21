@@ -22,7 +22,8 @@ const projects = [
     category: "Residential",
     location: "Lagos, Nigeria",
     image: projectVilla,
-    description: "A stunning contemporary villa featuring open-plan living spaces, infinity pool, and tropical landscaping.",
+    description:
+      "A stunning contemporary villa featuring open-plan living spaces, infinity pool, and tropical landscaping.",
   },
   {
     id: 2,
@@ -30,7 +31,8 @@ const projects = [
     category: "Commercial",
     location: "Abuja, Nigeria",
     image: projectOffice,
-    description: "State-of-the-art office building with sustainable design, glass curtain walls, and modern amenities.",
+    description:
+      "State-of-the-art office building with sustainable design, glass curtain walls, and modern amenities.",
   },
   {
     id: 3,
@@ -38,7 +40,8 @@ const projects = [
     category: "Residential",
     location: "Port Harcourt, Nigeria",
     image: projectDuplex,
-    description: "Premium duplex homes with contemporary African architecture and sophisticated evening lighting.",
+    description:
+      "Premium duplex homes with contemporary African architecture and sophisticated evening lighting.",
   },
   {
     id: 4,
@@ -46,7 +49,8 @@ const projects = [
     category: "Commercial",
     location: "Lagos, Nigeria",
     image: projectRetail,
-    description: "Modern retail complex featuring large glass storefronts and vibrant commercial spaces.",
+    description:
+      "Modern retail complex featuring large glass storefronts and vibrant commercial spaces.",
   },
   {
     id: 5,
@@ -54,7 +58,8 @@ const projects = [
     category: "Residential",
     location: "Enugu, Nigeria",
     image: projectTownhouse,
-    description: "Elegant townhouse development in a gated community with premium finishes and landscaping.",
+    description:
+      "Elegant townhouse development in a gated community with premium finishes and landscaping.",
   },
   {
     id: 6,
@@ -62,7 +67,8 @@ const projects = [
     category: "Commercial",
     location: "Lagos, Nigeria",
     image: projectHQ,
-    description: "Impressive corporate headquarters with sleek modern design and commanding street presence.",
+    description:
+      "Impressive corporate headquarters with sleek modern design and commanding street presence.",
   },
 ];
 
@@ -188,7 +194,7 @@ export default function Projects() {
                   layout
                   onMouseEnter={() => setHoveredProject(project.id)}
                   onMouseLeave={() => setHoveredProject(null)}
-                  className="group relative aspect-[4/3] overflow-hidden cursor-pointer"
+                  className="group relative aspect-4/3 overflow-hidden cursor-pointer"
                 >
                   {/* Image */}
                   <motion.img
@@ -202,7 +208,7 @@ export default function Projects() {
                   />
 
                   {/* Default Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-deep-black/80 via-deep-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-deep-black/80 via-deep-black/20 to-transparent" />
 
                   {/* Hover Overlay */}
                   <motion.div
@@ -222,7 +228,9 @@ export default function Projects() {
                     <p className="text-warm-concrete text-sm mb-4 line-clamp-3">
                       {project.description}
                     </p>
-                    <p className="text-pure-white/60 text-xs">{project.location}</p>
+                    <p className="text-pure-white/60 text-xs">
+                      {project.location}
+                    </p>
                   </motion.div>
 
                   {/* Default Content */}
@@ -265,7 +273,8 @@ export default function Projects() {
               className="text-center mt-16"
             >
               <p className="text-muted-foreground mb-6">
-                Interested in seeing more of our work or discussing your project?
+                Interested in seeing more of our work or discussing your
+                project?
               </p>
               <Button variant="hero" size="lg" asChild>
                 <Link href="/contact">Get in Touch</Link>

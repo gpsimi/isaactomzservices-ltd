@@ -51,7 +51,7 @@ export default function Contact() {
                 Begin Your Project
               </h1>
               <p className="text-warm-concrete text-lg md:text-xl max-w-2xl leading-relaxed">
-                Ready to transform your vision into reality? Get in touch with 
+                Ready to transform your vision into reality? Get in touch with
                 our team to discuss your project requirements.
               </p>
             </motion.div>
@@ -151,7 +151,7 @@ export default function Contact() {
                 </h2>
                 <div className="space-y-8">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-construction-red flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-construction-red flex items-center justify-center shrink-0">
                       <Phone size={20} className="text-pure-white" />
                     </div>
                     <div>
@@ -168,7 +168,7 @@ export default function Contact() {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-construction-red flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-construction-red flex items-center justify-center shrink-0">
                       <Mail size={20} className="text-pure-white" />
                     </div>
                     <div>
@@ -185,7 +185,7 @@ export default function Contact() {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-construction-red flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-construction-red flex items-center justify-center shrink-0">
                       <Instagram size={20} className="text-pure-white" />
                     </div>
                     <div>
@@ -204,7 +204,7 @@ export default function Contact() {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-construction-red flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-construction-red flex items-center justify-center shrink-0">
                       <MapPin size={20} className="text-pure-white" />
                     </div>
                     <div>
