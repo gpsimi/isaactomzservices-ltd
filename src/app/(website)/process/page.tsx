@@ -61,8 +61,8 @@ export default function Process() {
                 Our Approach to Excellence
               </h1>
               <p className="text-warm-concrete text-lg md:text-xl max-w-2xl leading-relaxed">
-                A structured, transparent process that ensures every project 
-                is delivered with precision and exceeds expectations.
+                A structured, transparent process that ensures every project is
+                delivered with precision and exceeds expectations.
               </p>
             </motion.div>
           </div>
@@ -83,7 +83,7 @@ export default function Process() {
                 >
                   {/* Timeline Line */}
                   {index < steps.length - 1 && (
-                    <div className="absolute left-6 md:left-10 top-16 bottom-0 w-[1px] bg-steel-line" />
+                    <div className="absolute left-6 md:left-10 top-16 bottom-0 w-px bg-steel-line" />
                   )}
 
                   {/* Step Number */}
@@ -122,10 +122,10 @@ export default function Process() {
                 Our Commitment
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                Throughout every phase, we maintain open communication, uphold 
-                the highest quality standards, and remain committed to delivering 
-                your project on time and within budget. Your satisfaction is our 
-                ultimate measure of success.
+                Throughout every phase, we maintain open communication, uphold
+                the highest quality standards, and remain committed to
+                delivering your project on time and within budget. Your
+                satisfaction is our ultimate measure of success.
               </p>
               <div className="inline-flex items-center gap-2 text-construction-red font-heading font-semibold">
                 <span className="w-8 h-[2px] bg-construction-red" />

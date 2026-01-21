@@ -81,7 +81,7 @@ export default function Blog() {
                 Insights & Expertise
               </h1>
               <p className="text-warm-concrete text-lg md:text-xl max-w-2xl leading-relaxed">
-                Expert perspectives on architecture, construction, and project 
+                Expert perspectives on architecture, construction, and project
                 management in Nigeria's built environment.
               </p>
             </motion.div>
@@ -102,7 +102,7 @@ export default function Blog() {
                   className="group bg-light-concrete"
                 >
                   {/* Image Placeholder */}
-                  <div className="aspect-[16/10] bg-charcoal relative overflow-hidden">
+                  <div className="aspect-16/10 bg-charcoal relative overflow-hidden">
                     <div className="absolute inset-0 flex items-center justify-center">
                       <span className="font-heading text-4xl font-bold text-pure-white/10">
                         IT

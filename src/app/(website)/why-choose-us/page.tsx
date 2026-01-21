@@ -65,7 +65,7 @@ export default function WhyChooseUs() {
                 Our Standard of Excellence
               </h1>
               <p className="text-warm-concrete text-lg md:text-xl max-w-2xl leading-relaxed">
-                Discover what sets Isaac Tomz Services Ltd apart in Nigeria's 
+                Discover what sets Isaac Tomz Services Ltd apart in Nigeria's
                 construction industry.
               </p>
             </motion.div>
@@ -85,7 +85,7 @@ export default function WhyChooseUs() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="flex gap-6 p-8 bg-light-concrete border-l-2 border-construction-red"
                 >
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <div className="w-12 h-12 bg-construction-red flex items-center justify-center">
                       <Check size={24} className="text-pure-white" />
                     </div>
@@ -118,10 +118,10 @@ export default function WhyChooseUs() {
                 Our Promise to You
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                At Isaac Tomz Services Ltd, we don't just construct buildings — 
-                we build relationships founded on trust, transparency, and 
-                mutual respect. Your satisfaction is not just our goal; 
-                it's our commitment.
+                At Isaac Tomz Services Ltd, we don't just construct buildings —
+                we build relationships founded on trust, transparency, and
+                mutual respect. Your satisfaction is not just our goal; it's our
+                commitment.
               </p>
               <blockquote className="border-l-4 border-construction-red pl-6 text-left">
                 <p className="font-heading text-2xl text-foreground italic">
