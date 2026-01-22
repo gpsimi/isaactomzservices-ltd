@@ -16,7 +16,7 @@ import { handleServerFunctions } from "@payloadcms/next/layouts";
 const Layout = ({ children }: Args) => (
   <RootLayout
     config={config}
-    //@ts-ignore
+    //@ts-expect-error - suppressHydrationWarning is valid but missing from type definition
     suppressHydrationWarning={true}
     importMap={importMap}
     serverFunction={async (args) => {
