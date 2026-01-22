@@ -16,6 +16,8 @@ import { handleServerFunctions } from "@payloadcms/next/layouts";
 const Layout = ({ children }: Args) => (
   <RootLayout
     config={config}
+    //@ts-ignore
+    suppressHydrationWarning={true}
     importMap={importMap}
     serverFunction={async (args) => {
       "use server";
