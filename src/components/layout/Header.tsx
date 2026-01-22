@@ -115,7 +115,7 @@ export function Header() {
                 size="default"
                 asChild
               >
-                <Link href="/contact">Get Quote</Link>
+                <Link href="/admin">Admin</Link>
               </Button>
             </div>
 
