@@ -8,7 +8,7 @@ This repository is not just a collection of code; it is the blueprint for our di
 
 ### Building on Solid Ground
 
-Just as a skyscraper requires a deep, reinforced foundation to stand the test of time, we chose **Next.js 16** as the bedrock of our platform. It provides the stability, speed, and scalability required to host a high-fidelity experience that performs flawlessly for every visitor, whether they are on a job site or in a boardroom.
+Just as a skyscraper requires a deep, reinforced foundation to stand the test of time, we chose **Next.js 15** as the bedrock of our platform. It provides the stability, speed, and scalability required to host a high-fidelity experience that performs flawlessly for every visitor, whether they are on a job site or in a boardroom.
 
 ### The Art of Precision
 
