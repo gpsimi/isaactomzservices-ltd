@@ -13,7 +13,7 @@ export const dynamic = "force-dynamic";
 export default async function Blog() {
   const payload = await getPayload();
 
-  const posts = await payload.find({
+  const postsData = await payload.find({
     collection: "blog",
     where: {
       _status: {
@@ -22,6 +22,14 @@ export default async function Blog() {
     },
     sort: "-publishedDate",
   });
+
+  const posts = postsData.docs.map((post) => ({
+    ...post,
+    excerpt: post.excerpt ?? null,
+    publishedDate: post.publishedDate ?? null,
+    featuredImage: post.featuredImage ?? null,
+    author: post.author ?? null,
+  }));
 
   return (
     <div className="min-h-screen">
@@ -51,8 +59,8 @@ export default async function Blog() {
         {/* Blog Grid */}
         <section className="py-section bg-background">
           <div className="container-luxury">
-            <BlogListingAnimations posts={posts.docs} />
-            {posts.docs.length === 0 && (
+            <BlogListingAnimations posts={posts} />
+            {posts.length === 0 && (
               <div className="text-center py-20 bg-muted/20 rounded-xl border border-dashed text-muted-foreground">
                 <p className="text-lg">No posts found. Check back soon!</p>
               </div>

@@ -12,11 +12,19 @@ export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const payload = await getPayload();
-  const testimonials = await payload.find({
+  const testimonialsData = await payload.find({
     collection: "testimonials",
     sort: "-createdAt",
     limit: 6,
   });
+
+  const testimonials = testimonialsData.docs.map((t) => ({
+    ...t,
+    rating: t.rating ?? 5,
+    role: t.role ?? null,
+    company: t.company ?? null,
+    photo: t.photo ?? null,
+  }));
 
   return (
     <div className="min-h-screen">
@@ -26,7 +34,7 @@ export default async function Home() {
         <IntroSection />
         <ServicesSection />
         <WhyChooseUsSection />
-        <TestimonialsSection testimonials={testimonials.docs} />
+        <TestimonialsSection testimonials={testimonials} />
         <CTASection />
       </main>
       <Footer />

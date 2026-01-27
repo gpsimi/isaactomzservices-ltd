@@ -10,10 +10,17 @@ export const dynamic = "force-dynamic";
 export default async function ProjectsPage() {
   const payload = await getPayload();
 
-  const projects = await payload.find({
+  const projectsData = await payload.find({
     collection: "projects",
     sort: "-year",
   });
+
+  const projects = projectsData.docs.map((project) => ({
+    ...project,
+    client: project.client ?? null,
+    location: project.location ?? null,
+    year: project.year ?? null,
+  }));
 
   return (
     <div className="min-h-screen">
@@ -43,7 +50,7 @@ export default async function ProjectsPage() {
         {/* Filter & Projects Grid */}
         <section className="py-section bg-background">
           <div className="container-luxury">
-            <ProjectsGrid projects={projects.docs} />
+            <ProjectsGrid projects={projects} />
 
             {/* CTA */}
             <div className="text-center mt-16">
