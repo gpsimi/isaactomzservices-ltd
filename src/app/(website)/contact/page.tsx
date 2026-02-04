@@ -12,6 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 
 export default function Contact() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,13 +20,39 @@ export default function Contact() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent",
-      description: "Thank you for your inquiry. We'll get back to you shortly.",
-    });
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/messages", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit message");
+      }
+
+      toast({
+        title: "Message Sent",
+        description:
+          "Thank you for your inquiry. Check your email for your Ticket Number.",
+      });
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -85,6 +112,7 @@ export default function Contact() {
                       }
                       placeholder="Your full name"
                       className="h-12 bg-light-concrete border-steel-line focus:border-construction-red"
+                      disabled={isSubmitting}
                     />
                   </div>
                   <div className="grid sm:grid-cols-2 gap-6">
@@ -101,6 +129,7 @@ export default function Contact() {
                         }
                         placeholder="your@email.com"
                         className="h-12 bg-light-concrete border-steel-line focus:border-construction-red"
+                        disabled={isSubmitting}
                       />
                     </div>
                     <div>
@@ -115,6 +144,7 @@ export default function Contact() {
                         }
                         placeholder="+234 XXX XXX XXXX"
                         className="h-12 bg-light-concrete border-steel-line focus:border-construction-red"
+                        disabled={isSubmitting}
                       />
                     </div>
                   </div>
@@ -131,10 +161,16 @@ export default function Contact() {
                       placeholder="Tell us about your project requirements..."
                       rows={6}
                       className="bg-light-concrete border-steel-line focus:border-construction-red resize-none"
+                      disabled={isSubmitting}
                     />
                   </div>
-                  <Button variant="accent" size="lg" type="submit">
-                    Request a Consultation
+                  <Button
+                    variant="accent"
+                    size="lg"
+                    type="submit"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Sending..." : "Request a Consultation"}
                   </Button>
                 </form>
               </motion.div>

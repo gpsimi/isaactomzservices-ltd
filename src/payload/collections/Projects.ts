@@ -60,6 +60,15 @@ export const Projects: CollectionConfig = {
       ],
     },
     {
+      name: 'categories',
+      type: 'relationship',
+      relationTo: 'project-categories',
+      hasMany: true,
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
       name: 'content',
       type: 'richText',
     },

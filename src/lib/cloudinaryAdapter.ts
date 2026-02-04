@@ -20,13 +20,15 @@ export const cloudinaryAdapter = (config: CloudinaryConfig): Adapter => {
     return {
       name: 'cloudinary',
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      handleUpload: async ({ file }: { file: any }) => {
+      handleUpload: async ({ file, data }: { file: any; data: any }) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         return new Promise<any>((resolve, reject) => { // Payload types might expect Partial<File> or similar, sticking to 'any' for result currently or Partial<File>
+          const folder = data?.section ? `${prefix ? `${prefix}/` : ''}${data.section}` : prefix
+          
           const uploadStream = cloudinary.uploader.upload_stream(
             {
               public_id: path.parse(file.filename).name,
-              folder: prefix,
+              folder,
               overwrite: true,
               resource_type: 'auto',
             },

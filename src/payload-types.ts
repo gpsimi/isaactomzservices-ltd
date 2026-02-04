@@ -17,6 +17,9 @@ export interface Config {
     testimonials: Testimonial;
     blog: Blog;
     services: Service;
+    'blog-categories': BlogCategory;
+    'project-categories': ProjectCategory;
+    messages: Message;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -29,6 +32,9 @@ export interface Config {
     testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
     blog: BlogSelect<false> | BlogSelect<true>;
     services: ServicesSelect<false> | ServicesSelect<true>;
+    'blog-categories': BlogCategoriesSelect<false> | BlogCategoriesSelect<true>;
+    'project-categories': ProjectCategoriesSelect<false> | ProjectCategoriesSelect<true>;
+    messages: MessagesSelect<false> | MessagesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -88,7 +94,8 @@ export interface User {
  */
 export interface Media {
   id: number;
-  alt?: string | null;
+  alt: string;
+  section?: ('hero' | 'blog' | 'projects' | 'services' | 'testimonials' | 'global') | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -120,6 +127,7 @@ export interface Project {
         id?: string | null;
       }[]
     | null;
+  categories?: (number | ProjectCategory)[] | null;
   content?: {
     root: {
       type: string;
@@ -135,6 +143,17 @@ export interface Project {
     };
     [k: string]: unknown;
   } | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "project-categories".
+ */
+export interface ProjectCategory {
+  id: number;
+  title: string;
+  slug?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -160,10 +179,6 @@ export interface Testimonial {
 export interface Blog {
   id: number;
   title: string;
-  slug: string;
-  publishedDate?: string | null;
-  featuredImage?: (number | null) | Media;
-  excerpt?: string | null;
   content?: {
     root: {
       type: string;
@@ -179,10 +194,32 @@ export interface Blog {
     };
     [k: string]: unknown;
   } | null;
+  slug: string;
+  publishedDate?: string | null;
   author?: (number | null) | User;
+  featuredImage?: (number | null) | Media;
+  excerpt?: string | null;
+  categories?: (number | BlogCategory)[] | null;
+  tags?:
+    | {
+        tag?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-categories".
+ */
+export interface BlogCategory {
+  id: number;
+  title: string;
+  slug?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -193,6 +230,20 @@ export interface Service {
   title: string;
   description?: string | null;
   icon?: (number | null) | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "messages".
+ */
+export interface Message {
+  id: number;
+  ticketNumber?: string | null;
+  name: string;
+  email: string;
+  phone?: string | null;
+  message: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -226,6 +277,18 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'services';
         value: number | Service;
+      } | null)
+    | ({
+        relationTo: 'blog-categories';
+        value: number | BlogCategory;
+      } | null)
+    | ({
+        relationTo: 'project-categories';
+        value: number | ProjectCategory;
+      } | null)
+    | ({
+        relationTo: 'messages';
+        value: number | Message;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -290,6 +353,7 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  section?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -320,6 +384,7 @@ export interface ProjectsSelect<T extends boolean = true> {
         image?: T;
         id?: T;
       };
+  categories?: T;
   content?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -344,12 +409,19 @@ export interface TestimonialsSelect<T extends boolean = true> {
  */
 export interface BlogSelect<T extends boolean = true> {
   title?: T;
+  content?: T;
   slug?: T;
   publishedDate?: T;
+  author?: T;
   featuredImage?: T;
   excerpt?: T;
-  content?: T;
-  author?: T;
+  categories?: T;
+  tags?:
+    | T
+    | {
+        tag?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
@@ -362,6 +434,39 @@ export interface ServicesSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   icon?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-categories_select".
+ */
+export interface BlogCategoriesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "project-categories_select".
+ */
+export interface ProjectCategoriesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "messages_select".
+ */
+export interface MessagesSelect<T extends boolean = true> {
+  ticketNumber?: T;
+  name?: T;
+  email?: T;
+  phone?: T;
+  message?: T;
   updatedAt?: T;
   createdAt?: T;
 }

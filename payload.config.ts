@@ -12,9 +12,14 @@ import { Projects } from './src/payload/collections/Projects'
 import { Testimonials } from './src/payload/collections/Testimonials'
 import { Blog } from './src/payload/collections/Blog'
 import { Services } from './src/payload/collections/Services'
+import { BlogCategories } from './src/payload/collections/BlogCategories'
+import { ProjectCategories } from './src/payload/collections/ProjectCategories'
+import { Messages } from './src/payload/collections/Messages'
 import { cloudinaryAdapter } from './src/lib/cloudinaryAdapter'
 
 import { resendAdapter } from '@payloadcms/email-resend'
+import { CustomLogo } from './src/components/payload/CustomLogo'
+import { CustomIcon } from './src/components/payload/CustomIcon'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -25,8 +30,14 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    components: {
+      graphics: {
+        Logo: CustomLogo as any,
+        Icon: CustomIcon as any,
+      },
+    },
   },
-  collections: [Users, Media, Projects, Testimonials, Blog, Services],
+  collections: [Users, Media, Projects, Testimonials, Blog, Services, BlogCategories, ProjectCategories, Messages],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   email: resendAdapter({

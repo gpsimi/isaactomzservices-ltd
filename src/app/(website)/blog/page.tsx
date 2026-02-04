@@ -7,6 +7,7 @@ import { ArrowRight, Calendar } from "lucide-react";
 import { format } from "date-fns";
 import type { Media } from "@/payload-types";
 import { BlogListingAnimations } from "./BlogListingAnimations";
+import Logo from "@/assets/logos/icon.png";
 
 export const dynamic = "force-dynamic";
 
@@ -67,6 +68,24 @@ export default async function Blog() {
             )}
           </div>
         </section>
+
+        <Link href="/admin" className="relative z-10 flex items-center">
+        <Image
+          src={Logo}
+          alt="Isaac Tomz Services"
+          width={50}
+          height={50}
+          className="mr-2"
+        />
+        <div className="flex flex-col items-center">
+          <span className="font-heading text-xl lg:text-2xl font-bold tracking-tight transition-colors duration-300">
+            ISAAC TOMZ
+          </span>
+          <span className="text-[10px] lg:text-xs tracking-[0.3em] uppercase transition-colors duration-300">
+            Services Ltd
+          </span>
+        </div>
+      </Link>
       </main>
       <Footer />
     </div>
