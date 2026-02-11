@@ -1,35 +1,31 @@
 /* THIS FILE WAS GENERATED AUTOMATICALLY BY PAYLOAD. */
-import { RootLayout } from "@payloadcms/next/layouts";
-import config from "../../../payload.config";
-import React from "react";
+/* DO NOT MODIFY IT BECAUSE IT COULD BE REWRITTEN AT ANY TIME. */
+import config from '@payload-config'
+import '@payloadcms/next/css'
+import type { ServerFunctionClient } from 'payload'
+import { handleServerFunctions, RootLayout } from '@payloadcms/next/layouts'
+import React from 'react'
 
-import { importMap } from "./admin/importMap";
-import "./custom.css";
-import "@payloadcms/next/css";
+import { importMap } from './admin/importMap.js'
+import './custom.scss'
 
 type Args = {
-  children: React.ReactNode;
-};
+  children: React.ReactNode
+}
 
-import { handleServerFunctions } from "@payloadcms/next/layouts";
+const serverFunction: ServerFunctionClient = async function (args) {
+  'use server'
+  return handleServerFunctions({
+    ...args,
+    config,
+    importMap,
+  })
+}
 
 const Layout = ({ children }: Args) => (
-  <RootLayout
-    config={config}
-    //@ts-expect-error - suppressHydrationWarning is valid but missing from type definition
-    suppressHydrationWarning={true}
-    importMap={importMap}
-    serverFunction={async (args) => {
-      "use server";
-      return handleServerFunctions({
-        ...args,
-        config,
-        importMap,
-      });
-    }}
-  >
+  <RootLayout config={config} importMap={importMap} serverFunction={serverFunction}>
     {children}
   </RootLayout>
-);
+)
 
-export default Layout;
+export default Layout
