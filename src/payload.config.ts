@@ -54,7 +54,14 @@ export default buildConfig({
         },
       ],
     },
+    components: {
+      graphics: {
+        Logo: '/components/Logo/Logo', 
+        Icon: '/components/Logo/Icon',
+      },
+    },
   },
+  
   // This config helps us configure global or default features that the other editors can inherit
   editor: defaultLexical,
   email: resendAdapter({

@@ -1,23 +1,22 @@
 import type { Metadata } from 'next'
 
-
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Space_Grotesk } from 'next/font/google'
 
 import React from 'react'
 
 // import { AdminBar } from '@/components/AdminBar'
-import { Providers } from "@/components/frontend/providers";
+import { Providers } from '@/components/frontend/providers'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 // import { draftMode } from 'next/headers'
 
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-heading",
-});
+  subsets: ['latin'],
+  variable: '--font-heading',
+})
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   // const { isEnabled } = await draftMode()
@@ -25,13 +24,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-      
-        <link href="/favicon.ico" rel="icon" sizes="32x32" />
-        <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+        <link href="/icon.png" rel="icon" sizes="32x32" />
+        {/* <link href="/favicon.svg" rel="icon" type="image/svg+xml" /> */}
       </head>
-      <body
-        className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`}
-      >
+      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
         <Providers>
           {/* <AdminBar
             adminBarProps={{
