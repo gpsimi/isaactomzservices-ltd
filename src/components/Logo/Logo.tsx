@@ -1,6 +1,6 @@
 import React from 'react'
-import logo from '@/assets/logos/logo-light.png' // Make sure you have your correct images referenced here
-import logoDark from '@/assets/logos/logo-dark.png' // Make sure you have your correct images referenced here
+import logo from '@/assets/logos/Logo-light.png' // Make sure you have your correct images referenced here
+import logoDark from '@/assets/logos/Logo-dark.png' // Make sure you have your correct images referenced here
 import Image from 'next/image'
 
 export default function Logo() {
