@@ -44,9 +44,15 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
 export const metadata: Metadata = {
   metadataBase: new URL(getServerSideURL()),
+  title: {
+    default: 'Isaac Tomz Services Ltd | Construction & Engineering',
+    template: '%s | Isaac Tomz Services Ltd',
+  },
+  description:
+    'Isaac Tomz Services is a leading construction and engineering company in Nigeria, delivering excellence in infrastructure, building projects, and architectural design.',
   openGraph: mergeOpenGraph(),
   twitter: {
     card: 'summary_large_image',
-    creator: '@payloadcms',
+    creator: '@isaactomz',
   },
 }
